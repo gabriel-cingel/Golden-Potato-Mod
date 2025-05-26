@@ -16,7 +16,7 @@ public class ModItems {
 
         GOLDEN_POTATO = Registry.register(
                 Registries.ITEM,
-                new Identifier(Mcmod.MOD_ID, "golden_potato"),
+                Identifier.of(Mcmod.MOD_ID, "golden_potato"),
                 new Item(new Item.Settings())
         );
 
