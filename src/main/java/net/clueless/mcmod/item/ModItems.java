@@ -9,19 +9,18 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static Item GOLDEN_POTATO;
+    public static final Item GOLDEN_POTATO = registerItem("golden_potato", new Item(new Item.Settings()));
+
+    private static Item registerItem(String name, Item item){
+        return Registry.register(Registries.ITEM,Identifier.of(Mcmod.MOD_ID,name), item);
+    }
 
     public static void registerModItems() {
         Mcmod.LOGGER.info("Registering Mod Items for " + Mcmod.MOD_ID);
 
-        GOLDEN_POTATO = Registry.register(
-                Registries.ITEM,
-                Identifier.of(Mcmod.MOD_ID, "golden_potato"),
-                new Item(new Item.Settings())
-        );
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.add(GOLDEN_POTATO);
         });
-    }
+
+}
 }
