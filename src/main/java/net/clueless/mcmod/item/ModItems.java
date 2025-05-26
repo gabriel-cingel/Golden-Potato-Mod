@@ -12,7 +12,7 @@ public class ModItems {
     public static final Item GOLDEN_POTATO = registerItem("golden_potato", new Item(new Item.Settings()));
 
     private static Item registerItem(String name, Item item){
-        return Registry.register(Registries.ITEM,Identifier.of(Mcmod.MOD_ID,name), item);
+        return Registry.register(Registries.ITEM, new Identifier(Mcmod.MOD_ID, name), item);
     }
 
     public static void registerModItems() {
@@ -21,6 +21,5 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.add(GOLDEN_POTATO);
         });
-
-}
+    }
 }
